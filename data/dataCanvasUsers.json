@@ -1,0 +1,19 @@
+{
+    "canvasExistingInstructor":
+    {  "username" : "sherpathinstructor@mailinator.com",
+        "password": "test1234"
+    },
+
+    "env": {
+        "production":
+        {
+                "prodCourseName" : "global flag"
+        },
+
+        "test1":
+        {
+            "test1courseName" : "1 OO Potter test1"
+        }
+    }
+}
+
