@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "protractor": "5.4.2"
-    "jasmine": "3.4.0",
-    "typescript": "3.5.3"
+    "protractor": "^5.4.2",
+    "jasmine": "^3.4.0",
+    "typescript": "^3.6.2"
+  },
+  "devDependencies": {
+    "decache": "^4.5.1"
   }
 }

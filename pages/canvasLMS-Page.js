@@ -26,7 +26,7 @@ var canvasLMSPage = function(){
     this.clickDashboardLink = function(){
         dashboardLink.click();
     };
-    this.selectCourse = function(courseName){
+    this.selectCourse = function(){
         courseLink.click();
     };
 
@@ -34,13 +34,12 @@ var canvasLMSPage = function(){
     this.externalToolLink = element(by.className('ig-title title item_link'));
     this.clickExternalToolLink = function() {
         this.externalToolLink.click();
-
         this.loadNewWindowBtn = element(by.css('.btn'));
+
         this.loadNewWindow = function () {
         this.loadNewWindowBtn.click();
 }
     };
-
 
 };module.exports = new canvasLMSPage();
 
