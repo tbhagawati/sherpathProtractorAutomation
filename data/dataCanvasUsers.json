@@ -1,19 +1,19 @@
 {
     "canvasURL" : "https://canvas.instructure.com/login/canvas",
     "canvasExistingInstructor":
-    {  "username" : "sherpathinstructor@mailinator.com",
+    {  "username" : "sherpathautomationinstructor@sharklasers.com",
         "password": "test1234"
     },
 
     "canvasExistingStudent":
-    {  "username" : "tonmoy_student3@mailinator.com",
+    {  "username" : "sherpathautomationstudent01@sharklasers.com",
         "password": "test1234"
     },
 
     "env": {
         "production":
         {
-                "courseName": "global flag"
+                "courseName": "Potter Production"
         },
 
         "test1":

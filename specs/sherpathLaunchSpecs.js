@@ -1,13 +1,11 @@
-
 var decache = require( 'decache');
 var canvasUserData = require ('../data/dataCanvasUsers.json');
- // import the fs module so that the json file in the data folder can be read. if you want to know more about this, go to https://chercher.tech/protractor/json-file-protractor
-var fs = require('fs');
-var canvasLMS = require("../pages/canvasLMS-Page");
-var protractor = require("protractor");
+var canvasLMS = require('../pages/canvasLMS-Page');
+var commonFunctions = require('../utilities/commonFunctions');
 
-var launchFromCanvas =function(){beforeEach(function () {
+    beforeEach(function () {
     canvasLMS = require('../pages/canvasLMS-Page.js');
+    commonFunctions = require('../utilities/commonFunctions');
 });
 
     /*
@@ -23,52 +21,24 @@ var launchFromCanvas =function(){beforeEach(function () {
 
     afterEach(function() {
         decache('../pages/canvasLMS-Page.js');
-        protractor.browser.restart();
+        decache('../utilities/commonFunctions');
+        browser.restart();
     });
 
     afterAll(function () {
-        browser.close();
+        //browser.close();
     });
 
-    //declaring the specs as function variables, so that they can be reused
+var launchFromCanvas =function(){
     describe('Sherpath Launch',function () {
-        var launchAsExistingInstructor =      it('should launch a sherpath course as an existing instructor', function () {
-            // This is to be added if your application is non-angular
-            browser.waitForAngularEnabled(false);
-            browser.get('https://canvas.instructure.com/login/canvas');
-            canvasLMS.enterUsername(canvasUserData.canvasExistingInstructor.username);
-            canvasLMS.enterPassword(canvasUserData.canvasExistingInstructor.password);
-            canvasLMS.clickCanvasLoginBtn();
-            canvasLMS.selectCourse(canvasUserData.env.production.courseName);
-            canvasLMS.clickExternalToolLink();
-            canvasLMS.loadNewWindow();
-            browser.getAllWindowHandles().then(function (handles) {
-                var newWindowHandle = handles[1]; // this is your new window
-                browser.switchTo().window(newWindowHandle)
-                    .then(function () {
-                        browser.waitForAngularEnabled(true);
-                    });
-                browser.sleep(8000).then(expect(browser.driver.getCurrentUrl()).toContain('https://eols.elsevier.com/#/instructorView'));
+        xit('should launch a sherpath course as an existing instructor', function () {
+            commonFunctions.launchUser(canvasUserData.canvasExistingInstructor.username, canvasUserData.canvasExistingInstructor.password,canvasUserData.env.production.courseName);
+            browser.sleep(8000).then(expect(browser.driver.getCurrentUrl()).toContain('https://eols.elsevier.com/#/instructorView'));
             });
-        });
 
-      var launchAsExistingStudent =   it('should launch sherpath as existing student', function () {
-            browser.waitForAngularEnabled(false);
-            browser.get('https://canvas.instructure.com/login/canvas');
-            //browser.sleep(3000);
-            canvasLMS.enterUsername(canvasUserData.canvasExistingStudent.username);
-            canvasLMS.enterPassword(canvasUserData.canvasExistingStudent.password);
-            canvasLMS.clickCanvasLoginBtn();
-            canvasLMS.selectCourse(canvasUserData.env.production.courseName);
-            canvasLMS.clickExternalToolLink();
-            canvasLMS.loadNewWindow();
-            browser.getAllWindowHandles().then(function (handles) {
-                var newWindowHandle = handles[1]; // this is your new window
-                browser.switchTo().window(newWindowHandle).then(function () {
-                    browser.waitForAngularEnabled(true);
-                });
-                browser.sleep(5000).then(expect(browser.driver.getCurrentUrl()).toContain('https://eols.elsevier.com/#/studentView'));
-            });
+      xit('should launch sherpath as existing student', function () {
+          commonFunctions.launchUser(canvasUserData.canvasExistingStudent.username, canvasUserData.canvasExistingStudent.password,canvasUserData.env.production.courseName);
+          browser.sleep(8000).then(expect(browser.driver.getCurrentUrl()).toContain('https://eols.elsevier.com/#/studentView'));
         });
 
     });
