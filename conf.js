@@ -24,7 +24,12 @@ exports.config = {
     // },
 
     //individual tests
-    specs: ['specs/sherpathLaunchSpecs.js']
+    specs: [
+        'specs/sherpathLaunchSpecs.js',
+        'specs/instructorHomepageSpecs.js'
+    ],
+
+    highlightDelay: 1000
 
     // SELENIUM_PROMISE_MANAGER:false,
   //  restartBrowserBetweenTests:true

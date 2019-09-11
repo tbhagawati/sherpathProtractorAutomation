@@ -21,7 +21,7 @@ var canvasLMSPage = function(){
     //Canvas Dashboard
     var dashboardLink = element(by.id('global_nav_dashboard_link'));
     //TODO :  Write a better selector for this element (course selection link on canvas dashboard)
-    var courseLink = element(by.css('[aria-label=\'global flag\'] .ic-DashboardCard__link span'));
+    var courseLink = element(by.css('[aria-label=\'Potter Production\'] .ic-DashboardCard__link span'));
 
     this.clickDashboardLink = function(){
         dashboardLink.click();
