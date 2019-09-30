@@ -1,4 +1,4 @@
-var canvasLMSPage = function(){
+var pageCanvasLMS = function(){
 
     //Canvas Login page
     var canvas_username = element(by.id('pseudonym_session_unique_id'));
@@ -41,6 +41,6 @@ var canvasLMSPage = function(){
 }
     };
 
-};module.exports = new canvasLMSPage();
+};module.exports = new pageCanvasLMS();
 
 
