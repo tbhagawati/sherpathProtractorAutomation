@@ -1,10 +1,10 @@
 var decache = require( 'decache');
 var canvasUserData = require ('../data/dataCanvasUsers.json');
-var canvasLMS = require('../pages/canvasLMS-Page');
+var canvasLMS = require('../pages/page-CanvasLMS');
 var commonFunctions = require('../utilities/commonFunctions');
 
     beforeEach(function () {
-    canvasLMS = require('../pages/canvasLMS-Page.js');
+    canvasLMS = require('../pages/page-CanvasLMS.js');
     commonFunctions = require('../utilities/commonFunctions');
 });
 
@@ -20,17 +20,17 @@ var commonFunctions = require('../utilities/commonFunctions');
      */
 
     afterEach(function() {
-        decache('../pages/canvasLMS-Page.js');
+        decache('../pages/page-CanvasLMS.js');
         decache('../utilities/commonFunctions');
         browser.restart();
     });
 
     afterAll(function () {
-        //browser.close();
+        browser.close();
     });
 
 var launchFromCanvas =function(){
-    describe('Sherpath Launch',function () {
+    xdescribe('Sherpath Launch',function () {
         xit('should launch a sherpath course as an existing instructor', function () {
             commonFunctions.launchUser(canvasUserData.canvasExistingInstructor.username, canvasUserData.canvasExistingInstructor.password,canvasUserData.env.production.courseName);
             browser.sleep(8000).then(expect(browser.driver.getCurrentUrl()).toContain('https://eols.elsevier.com/#/instructorView'));
