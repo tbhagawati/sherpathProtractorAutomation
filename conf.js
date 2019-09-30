@@ -7,12 +7,16 @@ exports.config = {
         isVerbose: false,
         showColors: true,
         includeStackTrace: false,
-        defaultTimeoutInterval: 40000
+        defaultTimeoutInterval: 120000
     },
 
     // Capabilities to be passed to the webdriver instance.
     capabilities: {
-        'browserName': 'chrome'
+        'browserName': 'chrome',
+      // use this to run headless chrome
+        chromeOptions: {
+            args: [ "--headless", "--disable-gpu", "--window-size=1920,1080" ]
+        }
     },
 
     // Spec patterns are relative to the location of the spec file. They may
@@ -25,8 +29,8 @@ exports.config = {
 
     //individual tests
     specs: [
-        'specs/sherpathLaunchSpecs.js',
-        'specs/instructorHomepageSpecs.js'
+        'specs/spec-SherpathLaunch.js',
+        'specs/spec-InstructorHomepage.js'
     ],
 
     highlightDelay: 1000
